@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="EasyRobocopy.js"></script>
+        <title>Easy-Robocopy: Say Goodbye to Robo-confusion!</title>
+    </head>
+    <body>
+        <h1>Easy-Robocopy: Say Goodbye to Robo-confusion!</h1>
+
+        <!-- output -->
+        <p id="computedCommand">robocopy.exe</p>
+
+        <form id="params">
+            <!-- source -->
+            <label for="source">Source:</label>
+            <input type="text" id="source" value="c:\src"><br>
+            
+
+            <!-- destination -->
+            <label for="destination">Destination:</label>
+            <input type="text" id="destination" value="c:\dest"><br>
+
+            <!-- s -->
+            <input type="checkbox" id="s" name="s" value="s">
+            <label for="s">/S :: copy Subdirectories, but not empty ones</label>
+        </form>
+    </body>
+</html>
