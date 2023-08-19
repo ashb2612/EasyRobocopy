@@ -1,3 +1,8 @@
+function copyToClipboard() {
+  var cmd = document.getElementById("computedCommand");
+  navigator.clipboard.writeText(cmd.innerHTML);
+}
+
 function computeCommand() {
   console.log("produceCommand called")
   command = "robocopy.exe " + document.getElementById("source").value + " " + document.getElementById("destination").value
