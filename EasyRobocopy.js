@@ -1,5 +1,22 @@
+class Attribute {
+  constructor(isEnabled, value) {
+      this.isEnabled = isEnabled;
+      this.value = value;
+  }
+}
+
+function init() {
+  var args = {
+    s: new Attribute(true, 1),
+    e: new Attribute()
+  }
+
+  console.log(args.s.value)
+
+  computeCommand()
+}
+
 function computeCommand() {
-  //console.log("produceCommand called")
   command = "robocopy.exe " + document.getElementById("arg-source").value + " " + document.getElementById("arg-destination").value
   updateDisplayedCommand(command)
 }
@@ -14,7 +31,6 @@ function copyToClipboard() {
   navigator.clipboard.writeText(cmd.innerHTML);
 }
 
-window.onload = computeCommand
-
-// event listener for page changes
+// event listeners
+window.onload = init
 document.addEventListener("input", computeCommand);
