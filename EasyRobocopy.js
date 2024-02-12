@@ -1,4 +1,4 @@
-class Attribute {
+class Option {
   constructor(isEnabled, value) {
       this.isEnabled = isEnabled;
       this.value = value;
@@ -6,12 +6,12 @@ class Attribute {
 }
 
 function init() {
-  var args = {
-    s: new Attribute(true, 1),
-    e: new Attribute()
+  var options = {
+    s: new Option(true, 1),
+    e: new Option()
   }
 
-  console.log(args.s.value)
+  console.log(options.s.value)
 
   computeCommand()
 }
