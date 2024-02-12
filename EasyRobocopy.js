@@ -17,7 +17,7 @@ function init() {
 }
 
 function computeCommand() {
-  command = "robocopy.exe " + document.getElementById("arg-source").value + " " + document.getElementById("arg-destination").value
+  command = "robocopy.exe " + document.getElementById("pathSource").value + " " + document.getElementById("pathDestination").value
   updateDisplayedCommand(command)
 }
 
