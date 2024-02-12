@@ -15,21 +15,26 @@
 
         <form id="params">
  
-            <!-- source -->
+            <!-- pathSource -->
             <label for="pathSource">Source:</label>
             <input type="text" id="pathSource" value="c:\src"><br>
 
-            <!-- destination -->
+            <!-- pathDestination -->
             <label for="pathDestination">Destination:</label>
             <input type="text" id="pathDestination" value="c:\dest"><br>
 
             <!-- s -->
-            <input type="checkbox" id="opt-s" name="opt-s" value="s">
-            <label for="opt-s">/S :: copy Subdirectories, but not empty ones</label><br>
+            <input type="checkbox" id="s" name="s" value="s">
+            <label for="s">/S :: copy Subdirectories, but not empty ones</label><br>
 
             <!-- e -->
-            <input type="checkbox" id="opt-e" name="opt-e" value="e">
-            <label for="opt-e">/E :: copy subdirectories, including Empty ones.</label><br>      
+            <input type="checkbox" id="e" name="e" value="e">
+            <label for="e">/E :: copy subdirectories, including Empty ones.</label><br>      
+
+            <!-- lev -->
+            <!-- THIS IS INCOMPLETE. IT NEEDS AN EXTRA FORM ENTRY-->
+            <input type="checkbox" id="lev" name="lev" value="lev">
+            <label for="lev">/LEV:n :: only copy the top n LEVels of the source directory tree.</label><br>      
 
         </form>
     </body>
