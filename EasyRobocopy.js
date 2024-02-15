@@ -22,6 +22,20 @@ function updateOptionsGui() {
   }
 }
 
+function inputChanged(ev) {
+  //console.log(myEvent);
+  //console.log(myEvent.srcElement.id);
+  //console.log(myEvent.srcElement.type);
+  //console.log(myEvent.srcElement.checked);
+
+  if (ev.srcElement.type == "checkbox") {
+    options[ev.srcElement.id].isEnabled = ev.srcElement.checked;
+  }
+  else if (ev.srcElement.type == "text") {
+    options[ev.srcElement.id].value = ev.srcElement.value;
+  }
+}
+
 function computeCommand() {
   command = "robocopy.exe " + document.getElementById("pathSource").value + " " + document.getElementById("pathDestination").value;
   return command;
@@ -40,12 +54,14 @@ function copyToClipboard() {
 
 
 function init() {
-  // initialise everything
+  // initialise
 
   // sample options for testing
-  options.s = new Option(false, undefined),
-  options.e = new Option()
-  options.lev = new Option(true, 5)
+  options.pathSource        = new Option(true, "c:\\src")
+  options.pathDestination   = new Option(true, "c:\\dest")
+  options.s                 = new Option(false, undefined),
+  options.e                 = new Option()
+  options.lev               = new Option(true, 5)
 
   updateOptionsGui()
   updateDisplayedCommand()
@@ -53,4 +69,5 @@ function init() {
 
 // event listeners
 window.onload = init
+document.addEventListener("input", inputChanged);
 document.addEventListener("input", updateDisplayedCommand);
