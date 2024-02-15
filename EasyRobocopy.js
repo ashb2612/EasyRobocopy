@@ -23,12 +23,13 @@ function updateOptionsGui() {
 }
 
 function computeCommand() {
-  command = "robocopy.exe " + document.getElementById("pathSource").value + " " + document.getElementById("pathDestination").value
-  updateDisplayedCommand(command)
+  command = "robocopy.exe " + document.getElementById("pathSource").value + " " + document.getElementById("pathDestination").value;
+  return command;
 }
 
 
-function updateDisplayedCommand(cmd) {
+function updateDisplayedCommand() {
+    cmd = computeCommand()
     document.getElementById("computedCommand").innerText = cmd;
 }
 
@@ -47,9 +48,9 @@ function init() {
   options.lev = new Option(true, 5)
 
   updateOptionsGui()
-  computeCommand()
+  updateDisplayedCommand()
 }
 
 // event listeners
 window.onload = init
-document.addEventListener("input", computeCommand);
+document.addEventListener("input", updateDisplayedCommand);
