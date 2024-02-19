@@ -23,11 +23,6 @@ function updateOptionsGui() {
 }
 
 function inputChanged(ev) {
-  //console.log(myEvent);
-  //console.log(myEvent.srcElement.id);
-  //console.log(myEvent.srcElement.type);
-  //console.log(myEvent.srcElement.checked);
-
   if (ev.srcElement.type == "checkbox") {
     options[ev.srcElement.id].isEnabled = ev.srcElement.checked;
   }
@@ -40,11 +35,14 @@ function computeCommand() {
   command = "robocopy.exe "
 
   for (o in options) {
-    console.log(o)
-    if (false) {
-      // source or destination
+    if (o == 'pathSource') {
+      command = command + options.pathSource.value + " "
     }
-    else {    
+    else if (o == 'pathDestination' ) {
+      command = command + options.pathDestination.value + " "
+    }
+    else {
+      // is an option    
       if (options[o].isEnabled) {
             command = command + " /" + o.toUpperCase();
       }
