@@ -24,6 +24,7 @@ function updateOptionsGui() {
 
 // listen for events and update the relevant Option
 function inputChanged(ev) {
+  // listen for events and update the relevant Option
   if (ev.srcElement.type == "checkbox") {
     options[ev.srcElement.id].isEnabled = ev.srcElement.checked;
   }
