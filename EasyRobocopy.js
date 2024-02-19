@@ -11,7 +11,9 @@ var options = {}
 // updates all checkboxes using the stored options
 function updateOptionsGui() {
   for (o in options) {
-    if (options[o].isEnabled === true) {
+    if (o == "pathSource" || o == "pathDestination") {
+      document.getElementById(o).value = options[o].value
+    } else if (options[o].isEnabled === true) {
       // is true
       document.getElementById(o).checked = true;
     }
@@ -71,8 +73,8 @@ function copyToClipboard() {
 function init() {
   
   // sample options for testing
-  options.pathSource        = new Option(true, "c:\\src")
-  options.pathDestination   = new Option(true, "c:\\dest")
+  options.pathSource        = new Option(true, "C:\\source")
+  options.pathDestination   = new Option(true, "C:\\destination")
   options.s                 = new Option(false, null)
   options.e                 = new Option(false, null)
   options.lev               = new Option(false, 5)
