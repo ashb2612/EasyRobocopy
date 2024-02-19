@@ -37,7 +37,20 @@ function inputChanged(ev) {
 }
 
 function computeCommand() {
-  command = "robocopy.exe " + document.getElementById("pathSource").value + " " + document.getElementById("pathDestination").value;
+  command = "robocopy.exe "
+
+  for (o in options) {
+    console.log(o)
+    if (false) {
+      // source or destination
+    }
+    else {    
+      if (options[o].isEnabled) {
+            command = command + " /" + o.toUpperCase();
+      }
+    }
+  }
+
   return command;
 }
 
@@ -59,9 +72,9 @@ function init() {
   // sample options for testing
   options.pathSource        = new Option(true, "c:\\src")
   options.pathDestination   = new Option(true, "c:\\dest")
-  options.s                 = new Option(false, undefined),
-  options.e                 = new Option()
-  options.lev               = new Option(true, 5)
+  options.s                 = new Option(false, null)
+  options.e                 = new Option(false, null)
+  options.lev               = new Option(false, 5)
 
   updateOptionsGui()
   updateDisplayedCommand()
