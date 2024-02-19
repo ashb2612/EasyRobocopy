@@ -8,8 +8,8 @@ class Option {
 // store all options
 var options = {}
 
+// updates all checkboxes using the stored options
 function updateOptionsGui() {
-  // updates all checkboxes using the stored options
   for (o in options) {
     if (options[o].isEnabled === true) {
       // is true
@@ -22,6 +22,7 @@ function updateOptionsGui() {
   }
 }
 
+// listen for events and update the relevant Option
 function inputChanged(ev) {
   if (ev.srcElement.type == "checkbox") {
     options[ev.srcElement.id].isEnabled = ev.srcElement.checked;
@@ -31,6 +32,7 @@ function inputChanged(ev) {
   }
 }
 
+// generates the string to be displayed
 function computeCommand() {
   command = "robocopy.exe "
 
@@ -52,7 +54,7 @@ function computeCommand() {
   return command;
 }
 
-
+// updates the outputted command
 function updateDisplayedCommand() {
     cmd = computeCommand()
     document.getElementById("computedCommand").innerText = cmd;
@@ -64,9 +66,9 @@ function copyToClipboard() {
 }
 
 
+// initialise
 function init() {
-  // initialise
-
+  
   // sample options for testing
   options.pathSource        = new Option(true, "c:\\src")
   options.pathDestination   = new Option(true, "c:\\dest")
